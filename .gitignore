@@ -8,3 +8,11 @@ __pycache__/
 
 # Artefacto intermedio (se regenera con src/collect.py)
 data/_collected_raw.json
+
+# Datos privados de auditoría (NO publicar): contienen DNI, deudas y PII de
+# pacientes. Solo se versionan los scripts reproducibles en src/.
+#  - audit/in/        : archivos fuente subidos (xlsx caja, PDFs Sentinel)
+#  - audit/raw_pdf/   : texto extraído de los reportes de central de riesgo
+#  - audit/*.md|*.json: informes y agregados con DNI/montos
+audit/
+
