@@ -1,0 +1,10 @@
+# Entorno
+.venv/
+__pycache__/
+*.pyc
+
+# Secretos
+.env
+
+# Artefacto intermedio (se regenera con src/collect.py)
+data/_collected_raw.json

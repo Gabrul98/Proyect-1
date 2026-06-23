@@ -1,0 +1,418 @@
+{
+  "_meta": {
+    "proyecto": "Due diligence grupo empresarial (Arequipa, Perú)",
+    "fecha_captura": "2026-06-23",
+    "fuentes_primarias": [
+      "SUNAT (vía api.apis.net.pe/v1/ruc, espejo del padrón SUNAT)",
+      "datosperu.org (perfil público de empresa)",
+      "búsqueda web pública (prensa, redes)"
+    ],
+    "limitaciones": "SUNAT e-consultaruc bloquea el acceso automatizado desde IP de datacenter mediante WAF ('Request Rejected'); se usa la API espejo de SUNAT (apis.net.pe) y datosperu.org como fuentes públicas equivalentes. Registrado como 'requiere acceso' para verificación manual.",
+    "descargo": "Documento de inteligencia de fuentes abiertas (OSINT). NO reemplaza un reporte de central de riesgo (Infocorp/Sentinel) ni una verificación registral en SUNARP/SUNAT."
+  },
+  "empresas": [
+    {
+      "ruc": "20606589051",
+      "razon_social": "CORPORACION MEDICA MEDESTETIC E.I.R.L.",
+      "nombre_comercial": "Bodytite Arequipa / centro Bodytite (marca con la que opera públicamente)",
+      "tipo_contribuyente": "EMPRESA INDIVIDUAL DE RESP. LTDA",
+      "estado_ruc": "ACTIVO",
+      "condicion_domicilio": "HABIDO",
+      "fecha_inscripcion": "27 de setiembre de 2020",
+      "inicio_actividades": "21 de octubre de 2020",
+      "regimen_tributario": "no disponible públicamente",
+      "actividad_ciiu": {
+        "principal": "8610 - ACTIVIDADES DE HOSPITALES",
+        "secundarias": [
+          "8620 - ACTIVIDADES DE MÉDICOS Y ODONTÓLOGOS"
+        ]
+      },
+      "domicilio_fiscal": {
+        "direccion": "AV. CORONEL FRANCISCO BOLOGNESI NRO. 456B URB. LAS RETAMAS",
+        "ubigeo": "040126",
+        "departamento": "AREQUIPA",
+        "provincia": "AREQUIPA",
+        "distrito": "YANAHUARA"
+      },
+      "establecimientos_anexos": [],
+      "_establecimientos_anexos_nota": "requiere acceso: la ficha extendida de SUNAT (anexos) bloquea el acceso automatizado por WAF",
+      "representantes": [
+        {
+          "nombre": "DELGADO CHIRINOS KATIA GLORIA",
+          "dni": "41055232",
+          "cargo": "TITULAR-GERENTE",
+          "vigencia": "desde 24 DE SETIEMBRE DE 2020"
+        }
+      ],
+      "empresas_vinculadas": [
+        {
+          "ruc": "20606592176",
+          "razon_social": "FENIXZONE E.I.R.L",
+          "tipo_vinculo": "representante en común",
+          "detalle": "DELGADO CHIRINOS KATIA GLORIA"
+        },
+        {
+          "ruc": "20608634241",
+          "razon_social": "INVERSIONES ZEVALLOS RODRIGUEZ E.I.R.L.",
+          "tipo_vinculo": "representante en común",
+          "detalle": "DELGADO CHIRINOS KATIA GLORIA"
+        },
+        {
+          "dni": "41055232",
+          "nombre": "DELGADO CHIRINOS KATIA GLORIA",
+          "tipo_vinculo": "persona nexo (titular-gerente)"
+        }
+      ],
+      "riesgo_publico": {
+        "no_habido": false,
+        "deuda_coactiva": "Sin deuda coactiva > 1 UIT declarada en programas Reactiva/COVID (flags: NO, NO). Estado coactivo general SUNAT: requiere acceso (consulta de deuda coactiva exige captcha en SUNAT).",
+        "procesos_judiciales": [
+          {
+            "tipo": "Investigación fiscal / cobertura de prensa",
+            "detalle": "Medestetic, donde falleció policía por cirugía plástica, no tenía licencia para operar — Una suboficial de la PNP (Diviac), Yuliana Wendy Huamaní Benavidez (28), falleció tras una cirugía estética realizada el 3-4 de abril de 2025 en el centro ubicado en Av. Bolognesi 456-B, Yanahuara (misma dirección que el domicilio fiscal del RUC). La Municipalidad de Yanahuara determinó que el local solo tenía licencia para consultorio médico, no para cirugías; dispuso la clausura y una multa de 1 UIT (~S/ 5,350).",
+            "estado": "Reportado por prensa; expediente formal en Poder Judicial (CEJ) requiere acceso (captcha).",
+            "fecha_hecho": "abril de 2025",
+            "fuentes": [
+              "https://rpp.pe/peru/arequipa/arequipa-inician-investigacion-preliminar-por-muerte-de-suboficial-tras-someterse-a-cirugia-estetica-noticia-1627047",
+              "https://www.apnoticias.pe/peru/el-buho/arequipa-medestetic-donde-fallecio-policia-por-cirugia-plastica-no-tenia-licencia-para-operar-1414638",
+              "https://inforegion.pe/arequipa-medestetic-donde-hicieron-cirugia-plastica-a-policia-que-fallecio-no-tenia-licencia-para-operar/",
+              "https://trome.com/actualidad/nacional/tragedia-en-arequipa-policia-de-la-diviac-muere-tras-someterse-a-cirugia-estetica-en-clinica-sin-licencia-noticia/",
+              "https://peru21.pe/peru/arequipa-joven-policia-fallece-tras-someterse-una-cirugia-estetica/"
+            ]
+          },
+          {
+            "tipo": "Investigación fiscal / cobertura de prensa",
+            "detalle": "Fiscalía investiga a cirujano y equipo de Corporación Médica Medestetic por homicidio culposo — El Ministerio Público inició investigación preliminar por presunto homicidio culposo (negligencia médica) contra el cirujano Ronner Ruiz y su equipo. Un medio (pancarta.pe) reportó que el médico investigado se encontraba prófugo/inubicable.",
+            "estado": "Reportado por prensa; expediente formal en Poder Judicial (CEJ) requiere acceso (captcha).",
+            "fecha_hecho": "abril de 2025",
+            "fuentes": [
+              "https://rpp.pe/peru/arequipa/arequipa-inician-investigacion-preliminar-por-muerte-de-suboficial-tras-someterse-a-cirugia-estetica-noticia-1627047",
+              "https://www.pancarta.pe/notas-imprescindibles/arequipa/medico-profugo-muerte-cirugia-estetica/"
+            ]
+          }
+        ],
+        "sanciones_indecopi": [],
+        "sanciones_otras": [
+          {
+            "entidad": "Municipalidad Distrital de Yanahuara",
+            "tipo": "Clausura del local + multa 1 UIT (~S/ 5,350)",
+            "motivo": "Realizar cirugías con licencia solo de consultorio médico (sin licencia para cirugías).",
+            "fecha": "abril de 2025",
+            "fuente": "https://rpp.pe/peru/arequipa/arequipa-inician-investigacion-preliminar-por-muerte-de-suboficial-tras-someterse-a-cirugia-estetica-noticia-1627047"
+          }
+        ],
+        "protestos": "no disponible públicamente",
+        "_nota_indecopi": "Búsqueda en registro INDECOPI: requiere acceso (formulario con captcha)."
+      },
+      "contratacion_estatal": [],
+      "_contratacion_nota": "Sin contrataciones con el Estado registradas en el perfil agregado de datosperu. Verificación directa en OSCE/SEACE-CONOSCE: requiere acceso (portal bloquea acceso automatizado).",
+      "huella_digital": {
+        "web": "no disponible públicamente (sin sitio web propio verificado)",
+        "redes": [
+          "Facebook: Bodytite Arequipa (https://www.facebook.com/corporacionmedicaarequipa/)",
+          "Instagram: @bodytite_arequipa (https://www.instagram.com/bodytite_arequipa)"
+        ],
+        "google_rating": "no disponible públicamente (Google Places requiere API key/clave)",
+        "google_resenas": "no disponible públicamente"
+      },
+      "trabajadores_estimados": "5 (periodo 2025-11, fuente datosperu/SUNAT)",
+      "ranking_datosperu": "129044",
+      "fuentes": [
+        {
+          "dato": "RUC, razón social, estado, condición, dirección, ubigeo, distrito/prov/depto",
+          "fuente": "SUNAT (vía api.apis.net.pe/v1/ruc, espejo del padrón SUNAT)",
+          "fecha_captura": "2026-06-23"
+        },
+        {
+          "dato": "Tipo contribuyente, fechas inscripción/inicio, CIIU, comprobantes, representantes, trabajadores, coactiva",
+          "fuente": "datosperu.org (perfil público de empresa)",
+          "fecha_captura": "2026-06-23"
+        },
+        {
+          "dato": "Riesgo reputacional/legal (prensa)",
+          "fuente": "https://rpp.pe/peru/arequipa/arequipa-inician-investigacion-preliminar-por-muerte-de-suboficial-tras-someterse-a-cirugia-estetica-noticia-1627047",
+          "fecha_captura": "2026-06-23"
+        },
+        {
+          "dato": "Riesgo reputacional/legal (prensa)",
+          "fuente": "https://rpp.pe/peru/arequipa/arequipa-inician-investigacion-preliminar-por-muerte-de-suboficial-tras-someterse-a-cirugia-estetica-noticia-1627047",
+          "fecha_captura": "2026-06-23"
+        }
+      ]
+    },
+    {
+      "ruc": "20606592176",
+      "razon_social": "FENIXZONE E.I.R.L",
+      "nombre_comercial": "no disponible públicamente",
+      "tipo_contribuyente": "EMPRESA INDIVIDUAL DE RESP. LTDA",
+      "estado_ruc": "ACTIVO",
+      "condicion_domicilio": "HABIDO",
+      "fecha_inscripcion": "27 de setiembre de 2020",
+      "inicio_actividades": "11 de octubre de 2020",
+      "regimen_tributario": "no disponible públicamente",
+      "actividad_ciiu": {
+        "principal": "4649 - VENTA AL POR MAYOR DE OTROS ENSERES DOMÉSTICOS",
+        "secundarias": []
+      },
+      "domicilio_fiscal": {
+        "direccion": "AV. BOLOGNESI NRO. 16 URB. LOS SAUCES DE CAYMA",
+        "ubigeo": "040103",
+        "departamento": "AREQUIPA",
+        "provincia": "AREQUIPA",
+        "distrito": "CAYMA"
+      },
+      "establecimientos_anexos": [],
+      "_establecimientos_anexos_nota": "requiere acceso: la ficha extendida de SUNAT (anexos) bloquea el acceso automatizado por WAF",
+      "representantes": [
+        {
+          "nombre": "DELGADO CHIRINOS KATIA GLORIA",
+          "dni": "41055232",
+          "cargo": "TITULAR-GERENTE",
+          "vigencia": "desde 21 DE SETIEMBRE DE 2020"
+        }
+      ],
+      "empresas_vinculadas": [
+        {
+          "ruc": "20606589051",
+          "razon_social": "CORPORACION MEDICA MEDESTETIC E.I.R.L.",
+          "tipo_vinculo": "representante en común",
+          "detalle": "DELGADO CHIRINOS KATIA GLORIA"
+        },
+        {
+          "ruc": "20608634241",
+          "razon_social": "INVERSIONES ZEVALLOS RODRIGUEZ E.I.R.L.",
+          "tipo_vinculo": "representante en común",
+          "detalle": "DELGADO CHIRINOS KATIA GLORIA"
+        },
+        {
+          "dni": "41055232",
+          "nombre": "DELGADO CHIRINOS KATIA GLORIA",
+          "tipo_vinculo": "persona nexo (titular-gerente)"
+        }
+      ],
+      "riesgo_publico": {
+        "no_habido": false,
+        "deuda_coactiva": "Sin deuda coactiva > 1 UIT declarada en programas Reactiva/COVID (flags: NO, NO). Estado coactivo general SUNAT: requiere acceso (consulta de deuda coactiva exige captcha en SUNAT).",
+        "procesos_judiciales": [],
+        "sanciones_indecopi": [],
+        "sanciones_otras": [],
+        "protestos": "no disponible públicamente",
+        "_nota_indecopi": "Búsqueda en registro INDECOPI: requiere acceso (formulario con captcha)."
+      },
+      "contratacion_estatal": [],
+      "_contratacion_nota": "Sin contrataciones con el Estado registradas en el perfil agregado de datosperu. Verificación directa en OSCE/SEACE-CONOSCE: requiere acceso (portal bloquea acceso automatizado).",
+      "huella_digital": {
+        "web": "no disponible públicamente",
+        "redes": [],
+        "google_rating": "no disponible públicamente",
+        "google_resenas": "no disponible públicamente"
+      },
+      "trabajadores_estimados": "no disponible públicamente",
+      "ranking_datosperu": "no disponible públicamente",
+      "fuentes": [
+        {
+          "dato": "RUC, razón social, estado, condición, dirección, ubigeo, distrito/prov/depto",
+          "fuente": "SUNAT (vía api.apis.net.pe/v1/ruc, espejo del padrón SUNAT)",
+          "fecha_captura": "2026-06-23"
+        },
+        {
+          "dato": "Tipo contribuyente, fechas inscripción/inicio, CIIU, comprobantes, representantes, trabajadores, coactiva",
+          "fuente": "datosperu.org (perfil público de empresa)",
+          "fecha_captura": "2026-06-23"
+        }
+      ]
+    },
+    {
+      "ruc": "20608634241",
+      "razon_social": "INVERSIONES ZEVALLOS RODRIGUEZ E.I.R.L.",
+      "nombre_comercial": "no disponible públicamente",
+      "tipo_contribuyente": "EMPRESA INDIVIDUAL DE RESP. LTDA",
+      "estado_ruc": "ACTIVO",
+      "condicion_domicilio": "HABIDO",
+      "fecha_inscripcion": "19 de octubre de 2021",
+      "inicio_actividades": "21 de noviembre de 2021",
+      "regimen_tributario": "no disponible públicamente",
+      "actividad_ciiu": {
+        "principal": "8690 - OTRAS ACTIVIDADES DE ATENCIÓN DE LA SALUD HUMANA",
+        "secundarias": []
+      },
+      "domicilio_fiscal": {
+        "direccion": "CAL.MISTI NRO. 203 URB. QUEZADA",
+        "ubigeo": "040126",
+        "departamento": "AREQUIPA",
+        "provincia": "AREQUIPA",
+        "distrito": "YANAHUARA"
+      },
+      "establecimientos_anexos": [],
+      "_establecimientos_anexos_nota": "requiere acceso: la ficha extendida de SUNAT (anexos) bloquea el acceso automatizado por WAF",
+      "representantes": [
+        {
+          "nombre": "DELGADO CHIRINOS KATIA GLORIA",
+          "dni": "41055232",
+          "cargo": "TITULAR-GERENTE",
+          "vigencia": "desde 12 DE MAYO DE 2022"
+        }
+      ],
+      "empresas_vinculadas": [
+        {
+          "ruc": "20606589051",
+          "razon_social": "CORPORACION MEDICA MEDESTETIC E.I.R.L.",
+          "tipo_vinculo": "representante en común",
+          "detalle": "DELGADO CHIRINOS KATIA GLORIA"
+        },
+        {
+          "ruc": "20606592176",
+          "razon_social": "FENIXZONE E.I.R.L",
+          "tipo_vinculo": "representante en común",
+          "detalle": "DELGADO CHIRINOS KATIA GLORIA"
+        },
+        {
+          "dni": "41055232",
+          "nombre": "DELGADO CHIRINOS KATIA GLORIA",
+          "tipo_vinculo": "persona nexo (titular-gerente)"
+        }
+      ],
+      "riesgo_publico": {
+        "no_habido": false,
+        "deuda_coactiva": "Sin deuda coactiva > 1 UIT declarada en programas Reactiva/COVID (flags: NO, NO). Estado coactivo general SUNAT: requiere acceso (consulta de deuda coactiva exige captcha en SUNAT).",
+        "procesos_judiciales": [],
+        "sanciones_indecopi": [],
+        "sanciones_otras": [],
+        "protestos": "no disponible públicamente",
+        "_nota_indecopi": "Búsqueda en registro INDECOPI: requiere acceso (formulario con captcha)."
+      },
+      "contratacion_estatal": [],
+      "_contratacion_nota": "Sin contrataciones con el Estado registradas en el perfil agregado de datosperu. Verificación directa en OSCE/SEACE-CONOSCE: requiere acceso (portal bloquea acceso automatizado).",
+      "huella_digital": {
+        "web": "no disponible públicamente",
+        "redes": [],
+        "google_rating": "no disponible públicamente",
+        "google_resenas": "no disponible públicamente"
+      },
+      "trabajadores_estimados": "2 (periodo 2025-11, fuente datosperu/SUNAT)",
+      "ranking_datosperu": "216556",
+      "fuentes": [
+        {
+          "dato": "RUC, razón social, estado, condición, dirección, ubigeo, distrito/prov/depto",
+          "fuente": "SUNAT (vía api.apis.net.pe/v1/ruc, espejo del padrón SUNAT)",
+          "fecha_captura": "2026-06-23"
+        },
+        {
+          "dato": "Tipo contribuyente, fechas inscripción/inicio, CIIU, comprobantes, representantes, trabajadores, coactiva",
+          "fuente": "datosperu.org (perfil público de empresa)",
+          "fecha_captura": "2026-06-23"
+        }
+      ]
+    },
+    {
+      "ruc": "20539523644",
+      "razon_social": "DELGADO & COILA /ATTORNEY AT LAW S.A.C.",
+      "nombre_comercial": "no disponible públicamente",
+      "tipo_contribuyente": "SOCIEDAD ANONIMA CERRADA",
+      "estado_ruc": "BAJA DE OFICIO",
+      "condicion_domicilio": "HABIDO",
+      "fecha_inscripcion": "9 de julio de 2012",
+      "inicio_actividades": "31 de julio de 2012",
+      "regimen_tributario": "no disponible públicamente",
+      "actividad_ciiu": {
+        "principal": "6910 - ACTIVIDADES JURÍDICAS",
+        "secundarias": []
+      },
+      "domicilio_fiscal": {
+        "direccion": "CAL.MERCADERES NRO. 406 INT. 220 (TIENDA 220)",
+        "ubigeo": "040101",
+        "departamento": "AREQUIPA",
+        "provincia": "AREQUIPA",
+        "distrito": "AREQUIPA"
+      },
+      "establecimientos_anexos": [],
+      "_establecimientos_anexos_nota": "requiere acceso: la ficha extendida de SUNAT (anexos) bloquea el acceso automatizado por WAF",
+      "representantes": [
+        {
+          "nombre": "no disponible públicamente",
+          "dni": "no disponible públicamente",
+          "cargo": "no disponible públicamente",
+          "vigencia": "no disponible públicamente"
+        }
+      ],
+      "empresas_vinculadas": [],
+      "riesgo_publico": {
+        "no_habido": false,
+        "deuda_coactiva": "no disponible públicamente (consulta de deuda coactiva SUNAT requiere acceso/captcha)",
+        "procesos_judiciales": [],
+        "sanciones_indecopi": [],
+        "sanciones_otras": [],
+        "protestos": "no disponible públicamente",
+        "_nota_indecopi": "Búsqueda en registro INDECOPI: requiere acceso (formulario con captcha)."
+      },
+      "contratacion_estatal": [],
+      "_contratacion_nota": "Sin contrataciones con el Estado registradas en el perfil agregado de datosperu. Verificación directa en OSCE/SEACE-CONOSCE: requiere acceso (portal bloquea acceso automatizado).",
+      "huella_digital": {
+        "web": "no disponible públicamente (no se halló sitio propio verificable)",
+        "redes": [],
+        "google_rating": "no disponible públicamente",
+        "google_resenas": "no disponible públicamente"
+      },
+      "trabajadores_estimados": "no disponible públicamente",
+      "ranking_datosperu": "no disponible públicamente",
+      "fuentes": [
+        {
+          "dato": "RUC, razón social, estado, condición, dirección, ubigeo, distrito/prov/depto",
+          "fuente": "SUNAT (vía api.apis.net.pe/v1/ruc, espejo del padrón SUNAT)",
+          "fecha_captura": "2026-06-23"
+        },
+        {
+          "dato": "Tipo contribuyente, fechas inscripción/inicio, CIIU, comprobantes, representantes, trabajadores, coactiva",
+          "fuente": "datosperu.org (perfil público de empresa)",
+          "fecha_captura": "2026-06-23"
+        }
+      ]
+    }
+  ],
+  "nexo": {
+    "tipo": "persona_natural (nexo del grupo)",
+    "nombre": "DELGADO CHIRINOS KATIA GLORIA",
+    "dni": "41055232",
+    "rol": "Representante / titular común a investigar",
+    "perfil": "Abogada de profesión. Figura como TITULAR-GERENTE de las 3 EIRL del grupo (Medestetic, Fenixzone, Inversiones Zevallos Rodriguez) y su apellido vincula con el estudio 'Delgado & Coila / Attorney at Law S.A.C.'. Fue candidata en las Elecciones Regionales/Municipales 2022.",
+    "empresas_donde_figura": [
+      {
+        "ruc": "20606589051",
+        "razon_social": "CORPORACION MEDICA MEDESTETIC E.I.R.L.",
+        "cargo": "TITULAR-GERENTE"
+      },
+      {
+        "ruc": "20606592176",
+        "razon_social": "FENIXZONE E.I.R.L",
+        "cargo": "TITULAR-GERENTE"
+      },
+      {
+        "ruc": "20608634241",
+        "razon_social": "INVERSIONES ZEVALLOS RODRIGUEZ E.I.R.L.",
+        "cargo": "TITULAR-GERENTE"
+      },
+      {
+        "ruc": "20539523644",
+        "razon_social": "DELGADO & COILA /ATTORNEY AT LAW S.A.C.",
+        "cargo": "vínculo por apellido (estudio jurídico); rol societario no confirmado públicamente"
+      }
+    ],
+    "fuentes": [
+      {
+        "dato": "Candidata Elecciones 2022 (DNI 41055232)",
+        "fuente": "https://otorongo.club/2022/candidate/41055232/",
+        "fecha_captura": "2026-06-23"
+      },
+      {
+        "dato": "Perfil de candidata 2022",
+        "fuente": "https://peruvotoinformado.com/2022/p/katia-gloria-delgado-chirinos",
+        "fecha_captura": "2026-06-23"
+      },
+      {
+        "dato": "Titular-gerente de 3 empresas",
+        "fuente": "https://www.datosperu.org/empresa-corporacion-medica-medestetic-eirl-20606589051.php",
+        "fecha_captura": "2026-06-23"
+      }
+    ]
+  }
+}
