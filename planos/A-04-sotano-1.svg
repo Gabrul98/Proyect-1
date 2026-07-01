@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="760" viewBox="0 0 620 760">
+<rect width="620" height="760" fill="#faf8f2"/>
+<rect x="14" y="14" width="592" height="732" fill="none" stroke="#1a1a1a" stroke-width="1.4"/>
+<defs>
+  <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,1.2 L10,5 L0,8.8 z" fill="#1a1a1a"/>
+  </marker>
+  <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+    <path d="M0,1.2 L10,5 L0,8.8 z" fill="#c8791b"/>
+  </marker>
+  <pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="5" stroke="#8a8577" stroke-width="0.55"/>
+  </pattern>
+  <pattern id="hatchG" width="5.5" height="5.5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="5.5" stroke="#4f7a5a" stroke-width="0.6" opacity="0.55"/>
+  </pattern>
+  <pattern id="terr" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="#6b6455" stroke-width="0.7" opacity="0.8"/>
+  </pattern>
+</defs>
+<text x="350.0" y="34.0" font-family="Georgia, serif" font-size="13.5" text-anchor="middle" fill="#1a1a1a" font-weight="bold" letter-spacing="0.6">PLANTA SÓTANO −1 · LOUNGE &amp; EL SECRETO</text>
+<text x="350.0" y="48.0" font-family="Helvetica, Arial" font-size="8" text-anchor="middle" fill="#555555" letter-spacing="1.2">NIVEL −3.50 m  ·  ESC 1:75  ·  LÁMINA A-04</text>
+<line x1="240.0" y1="55" x2="460.0" y2="55" stroke="#c8791b" stroke-width="1.1"/>
+<g>
+  <circle cx="78" cy="100" r="16" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+  <line x1="78" y1="113" x2="78" y2="93" stroke="#1a1a1a" stroke-width="1"/>
+  <path d="M78,86 L74,96 L82,96 z" fill="#c8791b" stroke="#1a1a1a" stroke-width="0.6"/>
+  <text x="78.0" y="78.0" font-family="Georgia, serif" font-size="9" text-anchor="middle" fill="#1a1a1a" font-weight="bold">N</text>
+</g>
+<text x="46.0" y="152.0" font-family="Helvetica, Arial" font-size="6.5" text-anchor="start" fill="#555555" font-weight="bold" letter-spacing="1">LEYENDA</text>
+<rect x="46" y="162" width="12" height="8" fill="#f5a623" fill-opacity="0.155" stroke="#55555566" stroke-width="0.6"/>
+<text x="62.0" y="168.5" font-family="Helvetica, Arial" font-size="6.5" text-anchor="start" fill="#444444">Público</text>
+<rect x="46" y="175" width="12" height="8" fill="#f5a623" fill-opacity="0.25" stroke="#55555566" stroke-width="0.6"/>
+<text x="62.0" y="181.5" font-family="Helvetica, Arial" font-size="6.5" text-anchor="start" fill="#444444">VIP</text>
+<rect x="46" y="188" width="12" height="8" fill="#8a8f98" fill-opacity="0.185" stroke="#55555566" stroke-width="0.6"/>
+<text x="62.0" y="194.5" font-family="Helvetica, Arial" font-size="6.5" text-anchor="start" fill="#444444">Servicio</text>
+<rect x="46" y="201" width="12" height="8" fill="#4f7a5a" fill-opacity="0.185" stroke="#55555566" stroke-width="0.6"/>
+<text x="62.0" y="207.5" font-family="Helvetica, Arial" font-size="6.5" text-anchor="start" fill="#444444">Exterior</text>
+<rect x="46" y="214" width="12" height="8" fill="url(#hatch)" stroke="#55555566" stroke-width="0.6"/>
+<text x="62.0" y="220.5" font-family="Helvetica, Arial" font-size="6.5" text-anchor="start" fill="#444444">Vacío / hueco de losa</text>
+<polygon points="240.00,573.21 369.83,573.21 327.58,80.00 240.00,80.00" fill="none" stroke="#1a1a1a" stroke-width="0.8" stroke-dasharray="7 3 1.5 3"/>
+<text x="304.9" y="598.2" font-family="Helvetica, Arial" font-size="7" text-anchor="middle" fill="#666666" letter-spacing="2">CALLE CACIQUE ALPACA</text>
+<text x="318.6" y="64.0" font-family="Helvetica, Arial" font-size="6.5" text-anchor="start" fill="#666666" letter-spacing="2">PASAJE PEATONAL</text>
+<polygon points="240.00,533.22 366.37,533.22 331.04,119.99 240.00,119.99" fill="#fdfbf4" stroke="#1a1a1a" stroke-width="4.4" stroke-linejoin="miter"/>
+<polygon points="279.99,527.89 310.65,527.89 310.65,471.90 279.99,471.90" fill="#8a8f98" fill-opacity="0.125" stroke="#555555" stroke-opacity="0.25" stroke-width="0.8"/>
+<polygon points="244.00,462.57 359.97,462.57 359.30,417.25 244.00,417.25" fill="#f5a623" fill-opacity="0.095" stroke="#555555" stroke-opacity="0.25" stroke-width="0.8"/>
+<polygon points="244.00,413.25 277.32,413.25 277.32,246.62 244.00,246.62" fill="#f5a623" fill-opacity="0.095" stroke="#555555" stroke-opacity="0.25" stroke-width="0.8"/>
+<polygon points="244.00,239.96 298.65,239.96 298.65,210.63 244.00,210.63" fill="#8a8f98" fill-opacity="0.125" stroke="#555555" stroke-opacity="0.25" stroke-width="0.8"/>
+<polygon points="305.32,239.96 337.31,239.96 336.64,210.63 305.32,210.63" fill="#8a8f98" fill-opacity="0.125" stroke="#555555" stroke-opacity="0.25" stroke-width="0.8"/>
+<polygon points="244.00,201.30 335.98,201.30 331.31,125.32 244.00,125.32" fill="#f5a623" fill-opacity="0.19" stroke="#555555" stroke-opacity="0.25" stroke-width="0.8"/>
+<line x1="277.3" y1="533.2" x2="277.3" y2="466.6" stroke="#2b2b2b" stroke-width="2.7"/>
+<line x1="313.3" y1="533.2" x2="313.3" y2="466.6" stroke="#2b2b2b" stroke-width="2.7"/>
+<line x1="240.0" y1="244.0" x2="280.0" y2="244.0" stroke="#2b2b2b" stroke-width="2.2"/>
+<line x1="240.0" y1="206.6" x2="338.0" y2="206.6" stroke="#2b2b2b" stroke-width="3.3"/>
+<line x1="301.3" y1="244.0" x2="301.3" y2="206.6" stroke="#2b2b2b" stroke-width="2.2"/>
+<text x="314.6" y="202.4" font-family="Helvetica, Arial" font-size="5" text-anchor="middle" fill="#c8791b" font-style="italic">muro pivotante</text>
+<polygon points="279.99,413.25 335.31,413.25 334.64,246.62 279.99,246.62" fill="url(#hatch)" stroke="#1a1a1a" stroke-width="1.2"/>
+<polygon points="279.99,413.25 335.31,413.25 334.64,246.62 279.99,246.62" fill="none" stroke="#7d97a8" stroke-width="0.7" transform="translate(0.9,0.9)"/>
+<rect x="282.4" y="316.9" width="50.2" height="21.8" fill="#faf8f2" fill-opacity="0.85" rx="1.5"/>
+<text x="307.5" y="324.9" font-family="Helvetica, Arial" font-size="6.5" text-anchor="middle" fill="#4a4438" font-weight="bold">VACÍO</text>
+<text x="307.5" y="334.3" font-family="Helvetica, Arial" font-size="5.5" text-anchor="middle" fill="#4a4438">LA CATEDRAL</text>
+<rect x="328.0" y="445.2" width="29.3" height="13.3" fill="#c8791b" fill-opacity="0.5" stroke="#c8791b" stroke-width="0.8"/>
+<rect x="248.0" y="130.7" width="69.3" height="13.3" fill="#c8791b" fill-opacity="0.5" stroke="#c8791b" stroke-width="0.8"/>
+<line x1="302.7" y1="66.0" x2="302.7" y2="611.21" stroke="#c8791b" stroke-width="0.8" stroke-dasharray="10 3 2 3" opacity="0.85"/>
+<circle cx="302.7" cy="66.0" r="6.5" fill="#faf8f2" stroke="#c8791b" stroke-width="1.1"/>
+<text x="302.7" y="68.4" font-family="Georgia, serif" font-size="7" text-anchor="middle" fill="#c8791b" font-weight="bold">A</text>
+<circle cx="302.7" cy="611.21" r="6.5" fill="#faf8f2" stroke="#c8791b" stroke-width="1.1"/>
+<text x="302.7" y="613.6" font-family="Georgia, serif" font-size="7" text-anchor="middle" fill="#c8791b" font-weight="bold">A</text>
+<g stroke="#1a1a1a" fill="none">
+<rect x="338.6" y="430.6" width="20.0" height="32.0" stroke-width="0.9" fill="#faf8f2" fill-opacity="0.6"/>
+<line x1="338.6" y1="458.84" x2="358.6" y2="458.84" stroke-width="0.4"/>
+<line x1="338.6" y1="455.11" x2="358.6" y2="455.11" stroke-width="0.4"/>
+<line x1="338.6" y1="451.37" x2="358.6" y2="451.37" stroke-width="0.4"/>
+<line x1="338.6" y1="447.64" x2="358.6" y2="447.64" stroke-width="0.4"/>
+<line x1="338.6" y1="443.91" x2="358.6" y2="443.91" stroke-width="0.4"/>
+<line x1="338.6" y1="440.18" x2="358.6" y2="440.18" stroke-width="0.4"/>
+<line x1="338.6" y1="436.44" x2="358.6" y2="436.44" stroke-width="0.4"/>
+<line x1="338.6" y1="432.71" x2="358.6" y2="432.71" stroke-width="0.4"/>
+<line x1="348.6" y1="434.6" x2="348.6" y2="457.6" stroke-width="0.8" marker-end="url(#arr)"/>
+<circle cx="348.6" cy="434.6" r="1.4" fill="#1a1a1a"/>
+</g>
+<text x="348.6" y="427.6" font-family="Helvetica, Arial" font-size="5" text-anchor="middle" fill="#1a1a1a">BAJA</text>
+<g stroke="#1a1a1a" fill="none">
+<rect x="282.7" y="482.6" width="26.7" height="45.3" stroke-width="0.9" fill="#faf8f2" fill-opacity="0.6"/>
+<line x1="282.7" y1="524.16" x2="309.3" y2="524.16" stroke-width="0.4"/>
+<line x1="282.7" y1="520.42" x2="309.3" y2="520.42" stroke-width="0.4"/>
+<line x1="282.7" y1="516.69" x2="309.3" y2="516.69" stroke-width="0.4"/>
+<line x1="282.7" y1="512.96" x2="309.3" y2="512.96" stroke-width="0.4"/>
+<line x1="282.7" y1="509.23" x2="309.3" y2="509.23" stroke-width="0.4"/>
+<line x1="282.7" y1="505.49" x2="309.3" y2="505.49" stroke-width="0.4"/>
+<line x1="282.7" y1="501.76" x2="309.3" y2="501.76" stroke-width="0.4"/>
+<line x1="282.7" y1="498.03" x2="309.3" y2="498.03" stroke-width="0.4"/>
+<line x1="282.7" y1="494.30" x2="309.3" y2="494.30" stroke-width="0.4"/>
+<line x1="282.7" y1="490.56" x2="309.3" y2="490.56" stroke-width="0.4"/>
+<line x1="282.7" y1="486.83" x2="309.3" y2="486.83" stroke-width="0.4"/>
+<line x1="296.0" y1="523.9" x2="296.0" y2="487.6" stroke-width="0.8" marker-end="url(#arr)"/>
+<circle cx="296.0" cy="523.9" r="1.4" fill="#1a1a1a"/>
+</g>
+<text x="296.0" y="479.6" font-family="Helvetica, Arial" font-size="5" text-anchor="middle" fill="#1a1a1a">SUBE</text>
+<line x1="313.3" y1="495.9" x2="313.3" y2="485.2" stroke="#faf8f2" stroke-width="5.1"/>
+<line x1="313.3" y1="495.9" x2="324.0" y2="495.9" stroke="#1a1a1a" stroke-width="1"/>
+<path d="M 324.0,495.9 A 10.7,10.7 0 0 1 313.3,485.2" fill="none" stroke="#1a1a1a" stroke-width="0.5" stroke-dasharray="2 1.6"/>
+<line x1="265.3" y1="244.0" x2="276.0" y2="244.0" stroke="#faf8f2" stroke-width="4.4"/>
+<line x1="265.3" y1="244.0" x2="265.3" y2="254.6" stroke="#1a1a1a" stroke-width="1"/>
+<path d="M 265.3,254.6 A 10.7,10.7 0 0 1 276.0,244.0" fill="none" stroke="#1a1a1a" stroke-width="0.5" stroke-dasharray="2 1.6"/>
+<line x1="301.3" y1="233.3" x2="301.3" y2="222.6" stroke="#faf8f2" stroke-width="4.4"/>
+<line x1="301.3" y1="233.3" x2="312.0" y2="233.3" stroke="#1a1a1a" stroke-width="1"/>
+<path d="M 312.0,233.3 A 10.7,10.7 0 0 1 301.3,222.6" fill="none" stroke="#1a1a1a" stroke-width="0.5" stroke-dasharray="2 1.6"/>
+<text x="226.0" y="501.9" font-family="Helvetica, Arial" font-size="6.5" text-anchor="end" fill="#1a1a1a">Esclusa &amp; guardarropa · 10 m²</text>
+<line x1="229" y1="500.4" x2="295.3" y2="499.9" stroke="#888888" stroke-width="0.5"/>
+<circle cx="295.3" cy="499.9" r="1.1" fill="#888888"/>
+<rect x="251.7" y="428.3" width="68.3" height="20.4" fill="#faf8f2" fill-opacity="0.72" rx="1.5"/>
+<text x="285.8" y="437.8" font-family="Helvetica, Arial" font-size="7" text-anchor="middle" fill="#1a1a1a">Lounge — Antesala</text>
+<text x="285.8" y="447.0" font-family="Helvetica, Arial" font-size="6.5" text-anchor="middle" fill="#6b6255">30 m²</text>
+<text x="260.7" y="329.9" font-family="Helvetica, Arial" font-size="6.5" text-anchor="middle" fill="#1a1a1a" transform="rotate(-90 260.7 329.9)">Balcón al vacío · 31 m²</text>
+<text x="226.0" y="227.3" font-family="Helvetica, Arial" font-size="6.5" text-anchor="end" fill="#1a1a1a">Baños lounge · 9 m²</text>
+<line x1="229" y1="225.8" x2="271.3" y2="225.3" stroke="#888888" stroke-width="0.5"/>
+<circle cx="271.3" cy="225.3" r="1.1" fill="#888888"/>
+<text x="392.0" y="227.3" font-family="Helvetica, Arial" font-size="6.5" text-anchor="start" fill="#1a1a1a">Camerino de artistas · 6 m²</text>
+<line x1="389" y1="225.8" x2="321.1" y2="225.3" stroke="#888888" stroke-width="0.5"/>
+<circle cx="321.1" cy="225.3" r="1.1" fill="#888888"/>
+<rect x="266.6" y="146.1" width="44.5" height="31.1" fill="#faf8f2" fill-opacity="0.72" rx="1.5"/>
+<text x="288.8" y="156.2" font-family="Helvetica, Arial" font-size="7.5" text-anchor="middle" fill="#1a1a1a" font-weight="bold">EL SECRETO</text>
+<text x="288.8" y="165.9" font-family="Helvetica, Arial" font-size="7.5" text-anchor="middle" fill="#1a1a1a">speakeasy</text>
+<text x="288.8" y="175.6" font-family="Helvetica, Arial" font-size="7.0" text-anchor="middle" fill="#6b6255">36 m²</text>
+<g stroke="#1a1a1a" stroke-width="0.7" fill="none">
+  <line x1="240.0" y1="585.21" x2="369.8" y2="585.21" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <line x1="240.0" y1="581.21" x2="240.0" y2="589.21"/>
+  <line x1="369.8" y1="581.21" x2="369.8" y2="589.21"/>
+</g>
+<text x="304.9" y="581.7" font-family="Helvetica, Arial" font-size="7" text-anchor="middle" fill="#1a1a1a">9.74</text>
+<g stroke="#1a1a1a" stroke-width="0.7" fill="none">
+  <line x1="210" y1="80.0" x2="210" y2="573.2" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <line x1="206" y1="80.0" x2="214" y2="80.0"/>
+  <line x1="206" y1="573.2" x2="214" y2="573.2"/>
+</g>
+<text x="206.0" y="326.6" font-family="Helvetica, Arial" font-size="7" text-anchor="middle" fill="#1a1a1a" transform="rotate(-90 206.0 326.6)">37.0</text>
+<g stroke="#1a1a1a" stroke-width="0.7" fill="none">
+  <line x1="384" y1="533.2" x2="384" y2="573.2" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <line x1="380" y1="533.2" x2="388" y2="533.2"/>
+  <line x1="380" y1="573.2" x2="388" y2="573.2"/>
+</g>
+<text x="388.0" y="553.2" font-family="Helvetica, Arial" font-size="6" text-anchor="middle" fill="#1a1a1a" transform="rotate(-90 388.0 553.2)">3.00</text>
+<g stroke="#1a1a1a" stroke-width="0.7" fill="none">
+  <line x1="384" y1="80.0" x2="384" y2="120.0" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <line x1="380" y1="80.0" x2="388" y2="80.0"/>
+  <line x1="380" y1="120.0" x2="388" y2="120.0"/>
+</g>
+<text x="388.0" y="100.0" font-family="Helvetica, Arial" font-size="6" text-anchor="middle" fill="#1a1a1a" transform="rotate(-90 388.0 100.0)">3.00</text>
+<g>
+<rect x="330" y="622" width="270" height="126" fill="#ffffff" fill-opacity="0.55" stroke="#1a1a1a" stroke-width="1.6"/>
+<rect x="330" y="622" width="5" height="126" fill="#c8791b"/>
+<text x="346.0" y="642.0" font-family="Georgia, serif" font-size="11" text-anchor="start" fill="#1a1a1a" font-weight="bold">PROYECTO C-4 — CLUB SIN NOMBRE</text>
+<text x="346.0" y="655.0" font-family="Helvetica, Arial" font-size="7.5" text-anchor="start" fill="#444444">Cuesta de Cayma N°4 · Cayma · Arequipa</text>
+<line x1="346" y1="663" x2="586" y2="663" stroke="#1a1a1a" stroke-width="0.6"/>
+<text x="346.0" y="678.0" font-family="Georgia, serif" font-size="9" text-anchor="start" fill="#c8791b" font-weight="bold">SÓTANO −1 · LOUNGE &amp; EL SECRETO</text>
+<text x="346.0" y="693.0" font-family="Helvetica, Arial" font-size="7" text-anchor="start" fill="#1a1a1a">NIVEL: −3.50 m</text>
+<text x="446.0" y="693.0" font-family="Helvetica, Arial" font-size="7" text-anchor="start" fill="#1a1a1a">ESC 1:75 (referencial)</text>
+<text x="346.0" y="707.0" font-family="Helvetica, Arial" font-size="7" text-anchor="start" fill="#1a1a1a">ÁREA: ≈ 253 m²</text>
+<text x="446.0" y="707.0" font-family="Helvetica, Arial" font-size="7" text-anchor="start" fill="#1a1a1a">AFORO: 145 pers.</text>
+<text x="346.0" y="734.0" font-family="Helvetica, Arial" font-size="6.5" text-anchor="start" fill="#777777">ZRE-CH · Municipalidad Distrital de Cayma</text>
+<text x="346.0" y="743.0" font-family="Helvetica, Arial" font-size="6.5" text-anchor="start" fill="#777777">Fecha: 2026-07 · Dib.: CC</text>
+<rect x="528" y="674" width="58" height="42" fill="none" stroke="#1a1a1a" stroke-width="1.2"/>
+<text x="557.0" y="686.0" font-family="Helvetica, Arial" font-size="6" text-anchor="middle" fill="#666666" letter-spacing="1">LÁMINA</text>
+<text x="557.0" y="708.0" font-family="Georgia, serif" font-size="17" text-anchor="middle" fill="#c8791b" font-weight="bold">A-04</text>
+</g>
+</svg>

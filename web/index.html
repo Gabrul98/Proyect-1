@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Proyecto C-4 — club sin nombre · Cayma, Arequipa</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./vendor/three.module.js",
+      "three/addons/controls/OrbitControls.js": "./vendor/OrbitControls.js",
+      "three/addons/controls/PointerLockControls.js": "./vendor/PointerLockControls.js",
+      "three/addons/utils/BufferGeometryUtils.js": "./vendor/BufferGeometryUtils.js"
+    }
+  }
+  </script>
+</head>
+<body>
+  <canvas id="escena"></canvas>
+
+  <!-- Splash -->
+  <div id="splash">
+    <div class="splash-caja">
+      <div class="splash-simbolo">⟠</div>
+      <h1>PROYECTO C-4</h1>
+      <p class="splash-sub">club sin nombre · Cuesta de Cayma N°4 · Arequipa</p>
+      <p class="splash-desc">
+        Siete niveles: un café que da la cara, un restaurante que cambia de piel a las 23:00
+        y, diez metros bajo la calle, La Catedral.
+      </p>
+      <button id="splash-entrar">Ver la maqueta</button>
+      <p class="splash-ayuda">
+        <strong>Maqueta:</strong> arrastra para orbitar · desliza «Explotar niveles» · clic en una zona para su ficha.<br />
+        <strong>Recorrido:</strong> WASD + ratón (o joystick táctil) · las escaleras te llevan de nivel · ESC para salir.
+      </p>
+    </div>
+  </div>
+
+  <!-- Encabezado y selector de modo -->
+  <header id="cabecera">
+    <div class="marca"><span class="simbolo">⟠</span> PROYECTO C-4</div>
+    <nav>
+      <button id="btn-maqueta" class="activo">Maqueta</button>
+      <button id="btn-recorrido">Recorrido</button>
+    </nav>
+  </header>
+
+  <!-- Controles modo maqueta -->
+  <div id="ui-iso" class="ui-flotante">
+    <label for="explode">Explotar niveles</label>
+    <input id="explode" type="range" min="0" max="1" step="0.01" value="0" />
+    <p class="ui-nota">Clic en cualquier zona coloreada para ver su ficha técnica.</p>
+  </div>
+
+  <!-- HUD modo recorrido -->
+  <div id="ui-fp" class="ui-flotante oculto">
+    <div id="hud-nivel">Piso 1 · Café</div>
+    <p class="ui-nota">Camina hacia una escalera para cambiar de nivel.</p>
+  </div>
+
+  <!-- Panel de fichas -->
+  <aside id="panel"></aside>
+
+  <!-- Overlays -->
+  <div id="fade"></div>
+  <div id="toast"></div>
+  <div id="touch-capa">
+    <div id="joystick-base"><div id="joystick-stick"></div></div>
+  </div>
+
+  <footer id="pie">Propuesta integral · dossier técnico en <code>/dossier</code> · planos en <code>/planos</code></footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

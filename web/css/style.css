@@ -1,0 +1,159 @@
+/* Proyecto C-4 — visor 3D */
+:root {
+  --fondo: #0a0a0c;
+  --ambar: #f5a623;
+  --ambar-oscuro: #c8791b;
+  --hueso: #f5e9d8;
+  --gris: #9a9aa2;
+  --panel: rgba(14, 14, 18, 0.92);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { height: 100%; overflow: hidden; background: var(--fondo); }
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: var(--hueso);
+  -webkit-font-smoothing: antialiased;
+}
+
+#escena { position: fixed; inset: 0; display: block; }
+
+/* ---------- Splash ---------- */
+#splash {
+  position: fixed; inset: 0; z-index: 40;
+  background: radial-gradient(ellipse at 50% 40%, #141018 0%, #060607 75%);
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.7s ease, visibility 0.7s;
+}
+#splash.oculto { opacity: 0; visibility: hidden; }
+.splash-caja { max-width: 520px; text-align: center; padding: 32px; }
+.splash-simbolo { font-size: 54px; color: var(--ambar); margin-bottom: 18px; }
+#splash h1 { font-size: 30px; letter-spacing: 0.45em; font-weight: 400; margin-bottom: 10px; }
+.splash-sub { color: var(--gris); font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 22px; }
+.splash-desc { font-size: 16px; line-height: 1.6; color: #d8cfc2; margin-bottom: 28px; font-style: italic; }
+#splash-entrar {
+  background: transparent; color: var(--ambar);
+  border: 1px solid var(--ambar-oscuro);
+  padding: 13px 42px; font-size: 14px; letter-spacing: 0.25em;
+  font-family: inherit; cursor: pointer; text-transform: uppercase;
+  transition: background 0.3s, color 0.3s;
+}
+#splash-entrar:hover { background: var(--ambar); color: #0a0a0c; }
+.splash-ayuda { margin-top: 30px; font-size: 12px; line-height: 1.8; color: #6d6d76; font-family: Helvetica, Arial, sans-serif; }
+.splash-ayuda strong { color: var(--gris); }
+
+/* ---------- Cabecera ---------- */
+#cabecera {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 28;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 22px;
+  background: linear-gradient(to bottom, rgba(6,6,8,0.85), transparent);
+  pointer-events: none;
+}
+.marca { font-size: 15px; letter-spacing: 0.35em; color: var(--hueso); }
+.marca .simbolo { color: var(--ambar); margin-right: 6px; }
+#cabecera nav { pointer-events: auto; display: flex; gap: 8px; }
+#cabecera button {
+  background: rgba(14,14,18,0.75); color: var(--gris);
+  border: 1px solid #33333c; padding: 8px 20px;
+  font-family: inherit; font-size: 13px; letter-spacing: 0.12em;
+  cursor: pointer; transition: all 0.25s;
+}
+#cabecera button.activo { color: var(--ambar); border-color: var(--ambar-oscuro); }
+#cabecera button:hover { color: var(--hueso); }
+
+/* ---------- UI flotante ---------- */
+.ui-flotante {
+  position: fixed; left: 22px; bottom: 56px; z-index: 20;
+  background: var(--panel); border: 1px solid #26262e;
+  padding: 16px 20px; width: 250px;
+  backdrop-filter: blur(6px);
+}
+.ui-flotante.oculto { display: none; }
+.ui-flotante label { font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gris); display: block; margin-bottom: 10px; }
+.ui-nota { font-size: 12px; color: #6d6d76; margin-top: 10px; line-height: 1.5; font-family: Helvetica, Arial, sans-serif; }
+#hud-nivel { font-size: 16px; color: var(--ambar); }
+
+input[type="range"] {
+  width: 100%; appearance: none; height: 2px;
+  background: #3a3a44; outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none; width: 16px; height: 16px; border-radius: 50%;
+  background: var(--ambar); cursor: pointer; border: none;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--ambar); cursor: pointer; border: none;
+}
+
+/* ---------- Panel de fichas ---------- */
+#panel {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 25;
+  width: min(380px, 88vw);
+  background: var(--panel); border-left: 1px solid #2c2c34;
+  padding: 70px 28px 28px;
+  transform: translateX(102%);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow-y: auto;
+  backdrop-filter: blur(10px);
+}
+#panel.abierto { transform: translateX(0); }
+.panel-cerrar {
+  position: absolute; top: 18px; right: 18px;
+  background: none; border: none; color: var(--gris);
+  font-size: 26px; cursor: pointer; line-height: 1;
+}
+.panel-cerrar:hover { color: var(--hueso); }
+.panel-nivel { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ambar-oscuro); margin-bottom: 8px; }
+.panel-titulo { font-size: 24px; font-weight: 400; margin-bottom: 14px; color: var(--hueso); }
+.panel-datos { display: flex; gap: 18px; margin-bottom: 16px; color: var(--gris); font-size: 14px; }
+.panel-datos strong { color: var(--ambar); font-size: 18px; }
+.panel-desc { font-size: 14.5px; line-height: 1.7; color: #cfc6b8; margin-bottom: 20px; }
+.panel-spec { border-top: 1px solid #26262e; padding-top: 14px; margin-bottom: 14px; }
+.panel-spec h3 { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gris); margin-bottom: 6px; }
+.panel-spec p { font-size: 13.5px; line-height: 1.6; color: #b5ac9f; font-family: Helvetica, Arial, sans-serif; }
+
+/* ---------- Overlays FP ---------- */
+#fade {
+  position: fixed; inset: 0; z-index: 30; background: #000;
+  opacity: 0; pointer-events: none; transition: opacity 0.28s ease;
+}
+#fade.activo { opacity: 1; }
+
+#toast {
+  position: fixed; top: 76px; left: 50%; transform: translateX(-50%);
+  z-index: 26; background: var(--panel); border: 1px solid var(--ambar-oscuro);
+  color: var(--ambar); padding: 10px 26px; font-size: 14px; letter-spacing: 0.1em;
+  opacity: 0; transition: opacity 0.3s;
+  pointer-events: none;
+}
+#toast.visible { opacity: 1; }
+
+#touch-capa { position: fixed; inset: 0; z-index: 15; pointer-events: none; touch-action: none; }
+#joystick-base {
+  position: absolute; width: 110px; height: 110px; display: none;
+  border: 1px solid rgba(245, 166, 35, 0.4); border-radius: 50%;
+  background: rgba(14,14,18,0.35);
+}
+#joystick-stick {
+  position: absolute; left: 33px; top: 33px; width: 44px; height: 44px;
+  border-radius: 50%; background: rgba(245, 166, 35, 0.5);
+}
+
+#pie {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 18;
+  padding: 10px 22px; font-size: 11px; color: #55555e;
+  font-family: Helvetica, Arial, sans-serif;
+  background: linear-gradient(to top, rgba(6,6,8,0.8), transparent);
+  pointer-events: none;
+}
+#pie code { color: #77777f; }
+
+@media (max-width: 640px) {
+  .marca { font-size: 12px; letter-spacing: 0.2em; }
+  .ui-flotante { width: 200px; left: 12px; bottom: 46px; padding: 12px 14px; }
+  #pie { display: none; }
+}
