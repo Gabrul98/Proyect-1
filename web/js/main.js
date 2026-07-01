@@ -13,6 +13,8 @@ const canvas = document.getElementById('escena');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, PIXEL_RATIO_MAX));
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.15;
 
 const escena = new THREE.Scene();
 escena.background = new THREE.Color(FONDO);
@@ -20,7 +22,7 @@ escena.background = new THREE.Color(FONDO);
 const edificio = construirEdificio();
 escena.add(edificio.buildingGroup);
 
-const rig = new RigLuces(escena, edificio.emissives, edificio.lightAnchors);
+const rig = new RigLuces(escena, edificio);
 const joystick = new TouchJoystick(document.getElementById('touch-capa'));
 const iso = new ModoIsometrico(renderer, escena, edificio);
 const fp = new ModoFirstPerson(renderer, escena, edificio, joystick, rig);
@@ -42,9 +44,20 @@ function setModo(nuevo) {
   $('touch-capa').style.pointerEvents = esFp && ES_TACTIL ? 'auto' : 'none';
 }
 
-$('btn-maqueta').addEventListener('click', () => setModo('iso'));
-$('btn-recorrido').addEventListener('click', () => setModo('fp'));
-fp.onSalir(() => setModo('iso'));
+// Cambio de modo con fundido a negro (misma pieza que el teleport)
+function cambiarModo(nuevo) {
+  if (nuevo === modo) return;
+  const fade = $('fade');
+  fade.classList.add('activo');
+  setTimeout(() => {
+    setModo(nuevo);
+    fade.classList.remove('activo');
+  }, 260);
+}
+
+$('btn-maqueta').addEventListener('click', () => cambiarModo('iso'));
+$('btn-recorrido').addEventListener('click', () => cambiarModo('fp'));
+fp.onSalir(() => cambiarModo('iso'));
 
 $('explode').addEventListener('input', (e) => iso.setExplode(parseFloat(e.target.value)));
 

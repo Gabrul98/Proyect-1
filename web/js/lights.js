@@ -20,10 +20,12 @@ function texturaGlow() {
 }
 
 export class RigLuces {
-  constructor(escena, emissives, lightAnchors) {
+  constructor(escena, edificio) {
     this.escena = escena;
-    this.emissives = emissives;
-    this.lightAnchors = lightAnchors;
+    this.emissives = edificio.emissives;
+    this.lightAnchors = edificio.lightAnchors;
+    this.muroLED = edificio.muroLED;
+    this.kinetic = edificio.kinetic;
 
     // Luz de maqueta
     this.ambienteIso = new THREE.AmbientLight(0xffffff, 1.6);
@@ -39,7 +41,7 @@ export class RigLuces {
     // Pool de luces puntuales
     this.pool = [];
     for (let i = 0; i < MAX_LUCES; i++) {
-      const l = new THREE.PointLight(AMBAR, 0, 14, 1.8);
+      const l = new THREE.PointLight(AMBAR, 0, 11, 2.0);
       l.visible = false;
       escena.add(l);
       this.pool.push({ luz: l, tipo: 'pulse', base: new THREE.Vector3(), fase: i * 1.37 });
@@ -51,7 +53,7 @@ export class RigLuces {
       const s = new THREE.Sprite(new THREE.SpriteMaterial({
         map: tex, blending: THREE.AdditiveBlending, depthWrite: false, transparent: true, opacity: 0,
       }));
-      s.scale.set(1.5, 1.5, 1);
+      s.scale.set(1.1, 1.1, 1);
       escena.add(s);
       return s;
     });
@@ -87,7 +89,19 @@ export class RigLuces {
   }
 
   update(t) {
-    // Emisivos animados (muro LED, barras)
+    // Muro LED: textura viva
+    this.muroLED.update(t);
+
+    // Kinetic array: las esferas "respiran" en olas sobre la pista
+    for (const k of this.kinetic) {
+      const caida = 1.5 + 1.1 * Math.sin(t * 0.75 + k.fila * 0.8 + k.col * 0.55)
+        + 0.35 * Math.sin(t * 1.9 + k.col * 1.3);
+      k.cable.scale.y = caida;
+      k.esfera.position.y = -caida;
+      k.esfera.material.emissiveIntensity = 1.3 + 0.9 * Math.sin(t * 2.3 + k.col * 0.9 + k.fila * 0.4);
+    }
+
+    // Emisivos animados (barras)
     for (const e of this.emissives) {
       if (e.tipo === 'led') {
         const v = 0.9 + 0.7 * Math.abs(Math.sin(t * 1.7)) + 0.25 * Math.sin(t * 9.3);
@@ -112,7 +126,7 @@ export class RigLuces {
       p.luz.intensity = intensidad;
       const g = this.glows[i];
       g.position.copy(p.luz.position);
-      g.material.opacity = Math.min(0.4, intensidad / 160);
+      g.material.opacity = Math.min(0.28, intensidad / 220);
     });
   }
 }

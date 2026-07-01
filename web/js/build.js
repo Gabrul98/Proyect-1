@@ -5,6 +5,7 @@
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { LOT, LEVELS, MATERIALS } from '../data/levels.js';
+import { texturaConcreto, texturaSillar, texturaPiso, texturaTerreno, MuroLED } from './textures.js';
 
 const GROSOR_LOSA = 0.35;
 const ESPESOR_PERIMETRO = 0.3;
@@ -81,8 +82,15 @@ export function construirEdificio() {
   const etiquetasNivel = [];
 
   const matLosa = crearMaterial(MATERIALS.losa);
+  matLosa.map = texturaPiso();
+  matLosa.roughness = 0.55;
+  matLosa.metalness = 0.15;
   const matMuro = crearMaterial(MATERIALS.murosBase);
+  matMuro.map = texturaConcreto();
+  const matSillar = new THREE.MeshStandardMaterial({ map: texturaSillar(), roughness: 0.9 });
   const matBaranda = crearMaterial(MATERIALS.vidrioBaranda);
+  const muroLED = new MuroLED();
+  const kinetic = []; // { cable, esfera, fila, col } — animados en lights.js
 
   for (const nivel of LEVELS) {
     const g = new THREE.Group();
@@ -159,7 +167,7 @@ export function construirEdificio() {
       if (prop.box) {
         const [a, b] = prop.box; // [[x1,z1,y1],[x2,z2,y2]] — y relativo al piso del nivel
         const geo = new THREE.BoxGeometry(b[0] - a[0], b[2] - a[2], b[1] - a[1]);
-        const mesh = new THREE.Mesh(geo, crearMaterial(matDef));
+        const mesh = new THREE.Mesh(geo, prop.material === 'sillar' ? matSillar : crearMaterial(matDef));
         mesh.position.set((a[0] + b[0]) / 2, (a[2] + b[2]) / 2, (a[1] + b[1]) / 2);
         g.add(mesh);
         if (matDef.emissive) emissives.push({ material: mesh.material, tipo: matDef.animado ?? 'fijo' });
@@ -170,11 +178,40 @@ export function construirEdificio() {
       } else if (prop.plano) {
         const p = prop.plano; // x1,x2,z fijos; y1,y2 en cotas ABSOLUTAS
         const geo = new THREE.PlaneGeometry(p.x2 - p.x1, p.y2 - p.y1);
-        const mesh = new THREE.Mesh(geo, crearMaterial(matDef));
+        // el muro LED usa su textura viva (autoiluminada); el resto, material estándar
+        const esLED = (matDef.animado === 'led');
+        const mesh = new THREE.Mesh(
+          geo,
+          esLED
+            ? new THREE.MeshBasicMaterial({ map: muroLED.textura, toneMapped: false })
+            : crearMaterial(matDef)
+        );
         mesh.position.set((p.x1 + p.x2) / 2, (p.y1 + p.y2) / 2 - nivel.elev, p.z);
         mesh.rotation.y = Math.PI; // mira hacia la calle (−Z)
         g.add(mesh);
-        if (matDef.emissive) emissives.push({ material: mesh.material, tipo: matDef.animado ?? 'fijo' });
+        if (!esLED && matDef.emissive) emissives.push({ material: mesh.material, tipo: matDef.animado ?? 'fijo' });
+      } else if (prop.tipo === 'kinetic') {
+        // Array cinético: esferas LED suspendidas de cables sobre la pista
+        const [x1, z1, x2, z2] = prop.area;
+        const geoCable = new THREE.BoxGeometry(0.02, 1, 0.02);
+        geoCable.translate(0, -0.5, 0);
+        const matCable = new THREE.MeshBasicMaterial({ color: 0x0a0a0a });
+        const geoEsfera = new THREE.SphereGeometry(0.13, 12, 10);
+        for (let f = 0; f < prop.filas; f++) {
+          for (let c = 0; c < prop.cols; c++) {
+            const px = x1 + ((c + 0.5) / prop.cols) * (x2 - x1);
+            const pz = z1 + ((f + 0.5) / prop.filas) * (z2 - z1);
+            const pivot = new THREE.Group();
+            pivot.position.set(px, prop.altoTecho, pz);
+            const cable = new THREE.Mesh(geoCable, matCable);
+            const esfera = new THREE.Mesh(geoEsfera, new THREE.MeshStandardMaterial({
+              color: 0x121212, emissive: 0xf5a623, emissiveIntensity: 1.8,
+            }));
+            pivot.add(cable, esfera);
+            g.add(pivot);
+            kinetic.push({ cable, esfera, fila: f, col: c });
+          }
+        }
       } else if (prop.segmentos) {
         for (const s of prop.segmentos) {
           const dx = s.p2[0] - s.p1[0], dz = s.p2[1] - s.p1[1];
@@ -205,10 +242,9 @@ export function construirEdificio() {
   }
 
   // --- Contexto: terreno y lote ---
-  const suelo = new THREE.Mesh(
-    new THREE.PlaneGeometry(120, 160),
-    crearMaterial(MATERIALS.terreno)
-  );
+  const matTerreno = crearMaterial(MATERIALS.terreno);
+  matTerreno.map = texturaTerreno();
+  const suelo = new THREE.Mesh(new THREE.PlaneGeometry(120, 160), matTerreno);
   suelo.rotation.x = -Math.PI / 2;
   suelo.position.set(LOT.frente / 2, -0.02, LOT.fondo / 2);
   buildingGroup.add(suelo);
@@ -221,5 +257,8 @@ export function construirEdificio() {
   );
   buildingGroup.add(lote);
 
-  return { buildingGroup, levelGroups, zoneMeshes, colliders, emissives, lightAnchors, etiquetasNivel };
+  return {
+    buildingGroup, levelGroups, zoneMeshes, colliders, emissives,
+    lightAnchors, etiquetasNivel, muroLED, kinetic,
+  };
 }

@@ -18,9 +18,11 @@ export function mostrarFicha(zona, nivelNombre) {
     ${f.luces && f.luces !== '—' ? `<div class="panel-spec"><h3>Iluminación</h3><p>${f.luces}</p></div>` : ''}
   `;
   p.classList.add('abierto');
+  document.body.classList.add('panel-abierto');
   p.querySelector('.panel-cerrar').addEventListener('click', ocultarFicha);
 }
 
 export function ocultarFicha() {
   el().classList.remove('abierto');
+  document.body.classList.remove('panel-abierto');
 }

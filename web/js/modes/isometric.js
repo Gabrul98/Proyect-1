@@ -20,7 +20,7 @@ export class ModoIsometrico {
     this._abajo = null;
 
     const aspecto = window.innerWidth / window.innerHeight;
-    const h = ISO_ALTO;
+    const h = ModoIsometrico.altoFrustum(aspecto);
     this.camara = new THREE.OrthographicCamera(-h * aspecto / 2, h * aspecto / 2, h / 2, -h / 2, -200, 400);
     this.camara.position.set(CENTRO.x + 44, 40, CENTRO.z - 44);
     this.camara.lookAt(CENTRO.x, ISO_TARGET_Y, CENTRO.z);
@@ -30,10 +30,15 @@ export class ModoIsometrico {
     this.controles.enableDamping = true;
     this.controles.dampingFactor = 0.08;
     this.controles.maxPolarAngle = Math.PI / 2.05;
+    this.controles.autoRotate = true;      // la maqueta "vive" hasta que el usuario la toca
+    this.controles.autoRotateSpeed = 0.65;
     this.controles.update();
 
     const dom = renderer.domElement;
-    dom.addEventListener('pointerdown', (e) => { this._abajo = { x: e.clientX, y: e.clientY }; });
+    dom.addEventListener('pointerdown', (e) => {
+      this._abajo = { x: e.clientX, y: e.clientY };
+      if (this.controles.enabled) this.controles.autoRotate = false;
+    });
     dom.addEventListener('pointerup', (e) => this._click(e));
     dom.addEventListener('pointermove', (e) => {
       this._puntero.x = (e.clientX / window.innerWidth) * 2 - 1;
@@ -51,10 +56,18 @@ export class ModoIsometrico {
 
   setExplode(f) { this.factorExplode = f; }
 
+  // En pantallas verticales el frustum crece para que el edificio completo
+  // (37 m de fondo + niveles explotados) siga entrando en el ancho.
+  static altoFrustum(aspecto) {
+    return Math.max(ISO_ALTO, 42 / Math.max(aspecto, 0.2));
+  }
+
   resize(aspecto) {
-    const h = ISO_ALTO;
+    const h = ModoIsometrico.altoFrustum(aspecto);
     this.camara.left = -h * aspecto / 2;
     this.camara.right = h * aspecto / 2;
+    this.camara.top = h / 2;
+    this.camara.bottom = -h / 2;
     this.camara.updateProjectionMatrix();
   }
 
@@ -62,7 +75,10 @@ export class ModoIsometrico {
     if (!this.controles.enabled || !this._abajo) return;
     const d = Math.hypot(e.clientX - this._abajo.x, e.clientY - this._abajo.y);
     this._abajo = null;
-    if (d > 5) return;
+    if (d > 7) return;
+    // en táctil no hay pointermove previo: el puntero se toma del propio evento
+    this._puntero.x = (e.clientX / window.innerWidth) * 2 - 1;
+    this._puntero.y = -(e.clientY / window.innerHeight) * 2 + 1;
     this._raycaster.setFromCamera(this._puntero, this.camara);
     const hits = this._raycaster.intersectObjects(this.edificio.zoneMeshes, false);
     if (hits.length) {

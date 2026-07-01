@@ -29,7 +29,25 @@ body {
 }
 #splash.oculto { opacity: 0; visibility: hidden; }
 .splash-caja { max-width: 520px; text-align: center; padding: 32px; }
-.splash-simbolo { font-size: 54px; color: var(--ambar); margin-bottom: 18px; }
+.splash-caja > * { animation: aparecer 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.splash-caja > *:nth-child(2) { animation-delay: 0.15s; }
+.splash-caja > *:nth-child(3) { animation-delay: 0.3s; }
+.splash-caja > *:nth-child(4) { animation-delay: 0.45s; }
+.splash-caja > *:nth-child(5) { animation-delay: 0.6s; }
+.splash-caja > *:nth-child(6) { animation-delay: 0.8s; }
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.splash-simbolo {
+  font-size: 54px; color: var(--ambar); margin-bottom: 18px;
+  animation: aparecer 0.9s both, latido 3.2s ease-in-out 1s infinite;
+  text-shadow: 0 0 22px rgba(245, 166, 35, 0.35);
+}
+@keyframes latido {
+  0%, 100% { text-shadow: 0 0 18px rgba(245, 166, 35, 0.25); }
+  50% { text-shadow: 0 0 34px rgba(245, 166, 35, 0.6); }
+}
 #splash h1 { font-size: 30px; letter-spacing: 0.45em; font-weight: 400; margin-bottom: 10px; }
 .splash-sub { color: var(--gris); font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 22px; }
 .splash-desc { font-size: 16px; line-height: 1.6; color: #d8cfc2; margin-bottom: 28px; font-style: italic; }
@@ -48,7 +66,7 @@ body {
 #cabecera {
   position: fixed; top: 0; left: 0; right: 0; z-index: 28;
   display: flex; justify-content: space-between; align-items: center;
-  padding: 14px 22px;
+  padding: calc(14px + env(safe-area-inset-top)) calc(22px + env(safe-area-inset-right)) 14px calc(22px + env(safe-area-inset-left));
   background: linear-gradient(to bottom, rgba(6,6,8,0.85), transparent);
   pointer-events: none;
 }
@@ -66,10 +84,12 @@ body {
 
 /* ---------- UI flotante ---------- */
 .ui-flotante {
-  position: fixed; left: 22px; bottom: 56px; z-index: 20;
+  position: fixed; left: calc(22px + env(safe-area-inset-left)); bottom: calc(56px + env(safe-area-inset-bottom));
+  z-index: 20;
   background: var(--panel); border: 1px solid #26262e;
   padding: 16px 20px; width: 250px;
   backdrop-filter: blur(6px);
+  transition: opacity 0.3s;
 }
 .ui-flotante.oculto { display: none; }
 .ui-flotante label { font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gris); display: block; margin-bottom: 10px; }
@@ -91,10 +111,10 @@ input[type="range"]::-moz-range-thumb {
 
 /* ---------- Panel de fichas ---------- */
 #panel {
-  position: fixed; top: 0; right: 0; bottom: 0; z-index: 25;
+  position: fixed; top: 62px; right: 0; bottom: 0; z-index: 25;
   width: min(380px, 88vw);
-  background: var(--panel); border-left: 1px solid #2c2c34;
-  padding: 70px 28px 28px;
+  background: var(--panel); border-left: 1px solid #2c2c34; border-top: 1px solid #2c2c34;
+  padding: 26px 28px 28px;
   transform: translateX(102%);
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   overflow-y: auto;
@@ -102,7 +122,7 @@ input[type="range"]::-moz-range-thumb {
 }
 #panel.abierto { transform: translateX(0); }
 .panel-cerrar {
-  position: absolute; top: 18px; right: 18px;
+  position: absolute; top: 14px; right: 18px;
   background: none; border: none; color: var(--gris);
   font-size: 26px; cursor: pointer; line-height: 1;
 }
@@ -152,8 +172,60 @@ input[type="range"]::-moz-range-thumb {
 }
 #pie code { color: #77777f; }
 
+/* ---------- Móvil: cada elemento con su propio espacio ----------
+   Cabecera arriba · HUD de nivel arriba-centro (bajo la cabecera) ·
+   slider abajo-izquierda · joystick abajo-izquierda (solo recorrido,
+   donde el slider ya no existe) · toast abajo-centro · panel a pantalla
+   casi completa. Nada se superpone. */
 @media (max-width: 640px) {
-  .marca { font-size: 12px; letter-spacing: 0.2em; }
-  .ui-flotante { width: 200px; left: 12px; bottom: 46px; padding: 12px 14px; }
+  .marca { font-size: 11px; letter-spacing: 0.18em; }
+  #cabecera button { padding: 7px 12px; font-size: 12px; }
+  .ui-flotante { width: 190px; padding: 12px 14px; bottom: calc(18px + env(safe-area-inset-bottom)); left: 12px; }
+  .ui-nota { font-size: 11px; }
+
+  /* HUD del recorrido: arriba al centro, fuera de la zona del joystick */
+  #ui-fp {
+    left: 50%; right: auto; bottom: auto;
+    top: calc(58px + env(safe-area-inset-top));
+    transform: translateX(-50%);
+    width: auto; max-width: 78vw;
+    text-align: center; padding: 8px 18px;
+  }
+  #ui-fp .ui-nota { display: none; }
+  #hud-nivel { font-size: 13px; white-space: nowrap; }
+
+  /* Toast: abajo al centro, lejos del HUD y del joystick */
+  #toast {
+    top: auto; bottom: calc(112px + env(safe-area-inset-bottom));
+    font-size: 12px; padding: 8px 18px; max-width: 84vw;
+  }
+
+  /* Panel como bottom sheet: nunca toca la cabecera ni sus botones */
+  #panel {
+    top: auto; left: 0; right: 0; bottom: 0;
+    width: 100%; max-height: 56vh;
+    border-left: none; border-top: 1px solid var(--ambar-oscuro);
+    border-radius: 16px 16px 0 0;
+    padding: 20px 22px calc(24px + env(safe-area-inset-bottom));
+    transform: translateY(105%);
+  }
+  #panel.abierto { transform: translateY(0); }
+  .panel-cerrar { top: 10px; }
+
+  /* Mientras el sheet está abierto, el slider le cede su espacio */
+  body.panel-abierto .ui-flotante { opacity: 0; pointer-events: none; }
+
   #pie { display: none; }
+  .splash-caja { padding: 24px; }
+  #splash h1 { font-size: 22px; }
+  .splash-desc { font-size: 14px; }
+  .splash-ayuda { font-size: 11px; }
+}
+
+/* Dedos: objetivos táctiles más grandes */
+@media (pointer: coarse) {
+  input[type="range"] { height: 4px; }
+  input[type="range"]::-webkit-slider-thumb { width: 26px; height: 26px; }
+  input[type="range"]::-moz-range-thumb { width: 26px; height: 26px; }
+  .panel-cerrar { font-size: 34px; padding: 8px; }
 }

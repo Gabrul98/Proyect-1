@@ -110,8 +110,10 @@ export const LEVELS = [
     ],
     props: [
       { tipo: 'barra', box: [[1.2, 8.6, 0], [8.6, 9.6, 1.1]], material: 'barraEmisiva' },
+      { tipo: 'barraSillar', box: [[1.2, 9.6, 0], [8.6, 10.1, 0.95]], material: 'sillar' },
       { tipo: 'muroLED', plano: { x1: 1.2, x2: 7.2, z: 28.55, y1: -10.3, y2: -3.8 }, material: 'muroLED' },
       { tipo: 'cabinaBase', box: [[3.0, 25.6, 0], [6.4, 28.3, 3.4]], material: 'murosBase' },
+      { tipo: 'kinetic', area: [2.0, 12.5, 7.2, 24.5], filas: 4, cols: 6, altoTecho: 9.4 },
     ],
     lightAnchors: [
       { pos: [2.5, -8.0, 13], tipo: 'sweep' }, { pos: [6.5, -8.0, 13], tipo: 'sweep' },
